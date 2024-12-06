@@ -17,6 +17,9 @@ public class HibernateUtil {
             Configuration configuration =new Configuration();
             Properties properties = getProperties();
             configuration.setProperties(properties);
+
+            // adding class or configuring class to hibernate
+            configuration.addAnnotatedClass(Student.class);
             ServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionfactory= (SessionFactory) configuration.buildSessionFactory(serviceRegistry);
         }
@@ -29,7 +32,7 @@ public class HibernateUtil {
         properties.put(Environment.URL,"jdbc:mysql://localhost:3306/hibernate_db");
         properties.put(Environment.USER,"root");
         properties.put(Environment.PASS,"987068@Vjack");
-        properties.put(Environment.DIALECT,"org.hibernate.dialect.MySQLDialect");
+        properties.put(Environment.DIALECT,"org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.HBM2DDL_AUTO,"update");
         properties.put(Environment.SHOW_SQL,true);
         return properties;

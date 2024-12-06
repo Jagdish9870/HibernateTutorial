@@ -1,5 +1,7 @@
 package org.example;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 
@@ -24,6 +26,19 @@ public class Main {
 
         SessionFactory factory= HibernateUtil.getSessionfactory();
         System.out.println(factory);
+
+
+        // to add values  in databases we have to start session
+        Session session= factory.openSession();
+        Transaction txn= session.beginTransaction();
+
+
+        Student st= new Student(2,"shubham","shubham@gmail.com","kurukshetra");
+        session.save(st);
+        txn.commit();
+        session.close();
+
+
 
     }
 }

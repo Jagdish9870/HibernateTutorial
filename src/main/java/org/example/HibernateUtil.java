@@ -20,6 +20,9 @@ public class HibernateUtil {
 
             // adding class or configuring class to hibernate
             configuration.addAnnotatedClass(Student.class);
+
+            // adding employee class
+            configuration.addAnnotatedClass(Employee.class);
             ServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionfactory= (SessionFactory) configuration.buildSessionFactory(serviceRegistry);
         }

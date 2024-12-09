@@ -5,6 +5,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 
+import java.util.Date;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -28,13 +30,26 @@ public class Main {
         System.out.println(factory);
 
 
-        // to add values  in databases we have to start session
+//        uncomment for student date
+// to add values  in student table  we have to start session
+//        Session session= factory.openSession();
+//        Transaction txn= session.beginTransaction();
+//
+//
+//        Student st= new Student(2,"shubham","shubham@gmail.com","kurukshetra");
+//        session.save(st);
+//        txn.commit();
+//        session.close();
+
+
+        // adding data into employee
+       //  to add values  in databases we have to start session
         Session session= factory.openSession();
         Transaction txn= session.beginTransaction();
 
 
-        Student st= new Student(2,"shubham","shubham@gmail.com","kurukshetra");
-        session.save(st);
+        Employee emp= new Employee(1,"jack","ab001","jack@gmail.com",new Date(),25600.00,true);
+        session.save(emp);
         txn.commit();
         session.close();
 

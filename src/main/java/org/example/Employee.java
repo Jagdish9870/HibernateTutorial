@@ -89,5 +89,18 @@ public class Employee {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", token='" + token + '\'' +
+                ", gmail='" + gmail + '\'' +
+                ", joining_date=" + joining_date +
+                ", Salary=" + Salary +
+                ", status=" + status +
+                '}';
+    }
 }
 
